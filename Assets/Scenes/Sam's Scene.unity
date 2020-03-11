@@ -177,9 +177,10 @@ GameObject:
   - component: {fileID: 704971356}
   - component: {fileID: 704971355}
   - component: {fileID: 704971360}
+  - component: {fileID: 704971361}
   m_Layer: 0
   m_Name: Person Place Holder
-  m_TagString: Untagged
+  m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -215,7 +216,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -294,6 +295,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  tries: 3
+  triesText: {fileID: 0}
+--- !u!114 &704971361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704971354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6e735284d9f59544b1c30e5465e3105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagToDestroy: Player1
 --- !u!1 &849987890
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,9 +407,10 @@ GameObject:
   - component: {fileID: 1635541035}
   - component: {fileID: 1635541034}
   - component: {fileID: 1635541039}
+  - component: {fileID: 1635541040}
   m_Layer: 0
   m_Name: Bear Place Holder
-  m_TagString: Untagged
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -508,3 +525,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  tries: 3
+  triesText: {fileID: 0}
+--- !u!114 &1635541040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635541033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6e735284d9f59544b1c30e5465e3105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagToDestroy: Player2
