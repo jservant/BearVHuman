@@ -238,6 +238,8 @@ MonoBehaviour:
   walkDistance: 1
   pauseTime: 5
   smallPause: 0.03
+  hasNumber: 0
+  direction: 0
 --- !u!50 &1850850964
 Rigidbody2D:
   serializedVersion: 4
