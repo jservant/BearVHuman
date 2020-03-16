@@ -9,9 +9,12 @@ public class AIController : MonoBehaviour
     [SerializeField] float walkDistance; // Determines distance the AI travels
     
     [Header("Time Walking")]
-    [SerializeField] int pauseTime;
+    [SerializeField] int pauseTime; // How long the AI stands still for after reaching the endpoint of where it was going
     [SerializeField] float smallPause = 0.03f; // How many units the AI moves in each increment
     // Keep smallPause small so it actually looks like walking and not quick teleporting
+
+    [Header("Debug")]
+    [SerializeField] int debugDirection = 0; //Overrides random direction selection (for debugging)
 
     bool hasNumber = false; // Checks to see if a direction has been assigned to the AI
     int direction; //For one of 8 directions    
@@ -31,13 +34,15 @@ public class AIController : MonoBehaviour
         {
             if (hasNumber == false) // If the a AI doesn't have a direction...
             {
-                direction = Random.Range(1, 8); // Randomly pick a direction
                 /* Directions follow numpad notation, but 6 is 5 and every number after is bumped up, like so:
                  * 6 7 8
                  * 4 * 5
                  * 1 2 3  */
+                if (debugDirection >= 1) {direction = debugDirection;}
+                else {direction = Random.Range(1, 8);} /* Randomly pick a direction */
                 Debug.Log(direction);
             }
+
             if (direction == 1) //Southwest
             {
                 pos -= transform.up * Time.deltaTime * moveSpeed;
