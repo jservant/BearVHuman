@@ -236,7 +236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   walkDistance: 1
-  pauseTime: 5
+  pauseTime: 1
   smallPause: 0.03
 --- !u!50 &1850850964
 Rigidbody2D:

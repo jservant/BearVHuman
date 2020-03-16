@@ -10,11 +10,11 @@ public class AIController : MonoBehaviour
     
     [Header("Time Walking")]
     [SerializeField] int pauseTime;
-    [SerializeField] float smallPause = 0.03f;
+    [SerializeField] float smallPause = 0.03f; // How many units the AI moves in each increment
+    // Keep smallPause small so it actually looks like walking and not quick teleporting
 
-    [Header("Debug (DO NOT EDIT)")]
-    [SerializeField] bool hasNumber = false; // Checks to see if a direction has been assigned to the AI
-    [SerializeField] int direction; //For one of 8 directions    
+    bool hasNumber = false; // Checks to see if a direction has been assigned to the AI
+    int direction; //For one of 8 directions    
 
     Vector3 pos;
     
@@ -97,8 +97,8 @@ public class AIController : MonoBehaviour
 
         if (WALKIN <= 0)
         {
-            yield return new WaitForSeconds(pauseTime);
             hasNumber = false;
+            yield return new WaitForSeconds(pauseTime);
             StartCoroutine(MoveAI());
         }
     }
