@@ -8,13 +8,17 @@ public class PersonController : MonoBehaviour
     public float speed;//for movement
     public int tries;//PLACE HOLDING TO TEST BEAR SCRIPT
     public Text triesText;//displaying tries on screen
+    [SerializeField] Sprite[] sprites;
 
     Rigidbody2D rb;
+    SpriteRenderer sr;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
+        sr.sprite = sprites[Random.Range(0, sprites.Length)];
     }
 
     // Update is called once per frame
