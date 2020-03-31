@@ -16,6 +16,7 @@ public class AIController : MonoBehaviour
     [Header("Debug")]
     [SerializeField] int debugDirection = 0; //Overrides random direction selection (for debugging)
     [SerializeField] bool printDirection = false;
+    [Space]
     [SerializeField] bool north = false;
     [SerializeField] bool south = false;
     [SerializeField] bool east = false;
@@ -62,20 +63,22 @@ public class AIController : MonoBehaviour
                 if (south == true) { direction = Random.Range(4, 8); south = false; }
                 if (east == true) 
                 {
-                    if (direction == 1) { direction = 3; }
-                    if (direction == 4) { direction = 5; }
-                    if (direction == 6) { direction = 8; }
+                    if (direction == 3) { direction = 1; }
+                    if (direction == 5) { direction = 4; }
+                    if (direction == 8) { direction = 6; }
                     east = false;
                 }
                 if (west == true) 
                 {
-                    if (direction == 3) { direction = 1; }
-                    if (direction == 5) { direction = 4; }
-                    if (direction == 8) { direction = 6; }
+                    if (direction == 1) { direction = 3; }
+                    if (direction == 4) { direction = 5; }
+                    if (direction == 6) { direction = 8; }
                     west = false;
                 }
 
                 if (printDirection == true) { Debug.Log(direction); }
+                pauseTime = Random.Range(1, 3);
+                walkDistance = Random.Range(.5f, 2);
             }
 
             if (direction == 1) //Southwest
@@ -135,13 +138,13 @@ public class AIController : MonoBehaviour
             WALKIN -= Time.deltaTime; // Time goes down while moving
 
             if (transform.position.x < clampMinX) // West
-                { transform.position = new Vector3(clampMinX + 0.1f, transform.position.y); west = true; WALKIN = 0; }
+                { transform.position = new Vector3(clampMinX, transform.position.y); west = true; WALKIN = 0; }
             if (transform.position.x > clampMaxX) // East
-                { transform.position = new Vector3(clampMaxX - 0.1f, transform.position.y); east = true; WALKIN = 0; }
+                { transform.position = new Vector3(clampMaxX, transform.position.y); east = true; WALKIN = 0; }
             if (transform.position.y < clampMinY) // South
-                { transform.position = new Vector3(transform.position.x, clampMinY + 0.1f); south = true; WALKIN = 0; }
+                { transform.position = new Vector3(transform.position.x, clampMinY); south = true; WALKIN = 0; }
             if (transform.position.y > clampMaxY) // North
-                { transform.position = new Vector3(transform.position.x, clampMaxY - 0.1f); north = true; WALKIN = 0; }
+                { transform.position = new Vector3(transform.position.x, clampMaxY); north = true; WALKIN = 0; }
         }
 
         if (WALKIN <= 0)
