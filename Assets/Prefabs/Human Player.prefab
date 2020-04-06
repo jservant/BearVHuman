@@ -12,11 +12,10 @@ GameObject:
   - component: {fileID: 8964040052148555454}
   - component: {fileID: 1562756418531063441}
   - component: {fileID: 1562756418531063446}
-  - component: {fileID: 1562756418531063469}
-  - component: {fileID: 1562756418531063468}
+  - component: {fileID: 5271308893821011204}
   m_Layer: 0
-  m_Name: Jaden's Player
-  m_TagString: Player2
+  m_Name: Human Player
+  m_TagString: PHuman
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,7 +120,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1562756418531063469
+--- !u!114 &5271308893821011204
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,12 +129,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1562756418531063447}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af3b5b9f2f5ac4a42a4ae4dda36dd7e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 8875db7b9273c214da9d80ec8d31610d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.66
-  tries: 3
-  triesText: {fileID: 0}
+  tries: 0
+  hit: {fileID: 0}
+  swinger: {fileID: 0}
   sprites:
   - {fileID: 21300000, guid: 6cca0505cf267524f9a7922fc533f1d9, type: 3}
   - {fileID: 21300000, guid: 38b31af869ad0014f90e028ae1126fa6, type: 3}
@@ -143,16 +143,3 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c2f5d6fae22e7e34987cfddd829f0cf3, type: 3}
   - {fileID: 21300000, guid: 6489fc17807b0c34089f26e9307bc5e7, type: 3}
   - {fileID: 21300000, guid: 5ab77666ed4eb4e409056024d3e145a6, type: 3}
---- !u!114 &1562756418531063468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1562756418531063447}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6e735284d9f59544b1c30e5465e3105, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tagToDestroy: Player1

@@ -12,10 +12,10 @@ public class LosingTries : MonoBehaviour
         {
             Destroy(other.gameObject);
             Destroy(gameObject);
-            if (tagToDestroy == "Player2")
+           /* if (tagToDestroy == "Player2")
             {
-                other.GetComponent<PersonController>().LoseATryP();
-            }
+                other.GetComponent<PlayerController>().LoseATryP();
+            } */
         }
     }
 }
