@@ -7,7 +7,8 @@ public class AIController : MonoBehaviour
     [Header("Travelling")]
     [SerializeField] float moveSpeed;    // Determines how fast the AI gets to their desired endpoint
     [SerializeField] float walkDistance; // Determines distance the AI travels (should get randomized)
-    
+    [SerializeField] int direction; //For one of 8 directions
+
     [Header("Time Walking")]
     [SerializeField] float pauseTime; // How long the AI stands still for after reaching the endpoint of where it was going (should get randomized)
     [SerializeField] float smallPause = 0.03f; // How many units the AI moves in each increment
@@ -21,6 +22,7 @@ public class AIController : MonoBehaviour
     [SerializeField] bool south = false;
     [SerializeField] bool east = false;
     [SerializeField] bool west = false;
+    [SerializeField] bool isRight = false;
 
     [Header("Clamps")]
     [SerializeField] float clampMinX;
@@ -31,7 +33,6 @@ public class AIController : MonoBehaviour
     [Header("Sprites")]
     [SerializeField] Sprite[] sprites;
 
-    int direction; //For one of 8 directions
     bool hasNumber = false; // DO NOT DELETE, causes AI to move rapidly
 
     Vector3 pos;
@@ -42,6 +43,13 @@ public class AIController : MonoBehaviour
         pos = transform.position;
         sr = GetComponent<SpriteRenderer>();
         sr.sprite = sprites[Random.Range(0, sprites.Length)];
+        pauseTime = Random.Range(1, 3);
+        StartCoroutine(StartPause());
+    }
+
+    IEnumerator StartPause()
+    {
+        yield return new WaitForSeconds(pauseTime);
         StartCoroutine(MoveAI());
     }
 
@@ -75,6 +83,11 @@ public class AIController : MonoBehaviour
                     if (direction == 6) { direction = 8; }
                     west = false;
                 }
+
+                if (direction == 3 || direction == 5 || direction == 8) { isRight = true; }
+                if (direction == 1 || direction == 4 || direction == 6) { isRight = false; }
+                if (isRight == true) { sr.flipX = true; }
+                if (isRight == false) { sr.flipX = false; } 
 
                 if (printDirection == true) { Debug.Log(direction); }
                 pauseTime = Random.Range(1, 3);
