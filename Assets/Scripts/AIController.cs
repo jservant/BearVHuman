@@ -22,7 +22,6 @@ public class AIController : MonoBehaviour
     [SerializeField] bool south = false;
     [SerializeField] bool east = false;
     [SerializeField] bool west = false;
-    [SerializeField] bool isRight = false;
 
     [Header("Clamps")]
     [SerializeField] float clampMinX;
@@ -84,10 +83,8 @@ public class AIController : MonoBehaviour
                     west = false;
                 }
 
-                if (direction == 3 || direction == 5 || direction == 8) { isRight = true; }
-                if (direction == 1 || direction == 4 || direction == 6) { isRight = false; }
-                if (isRight == true) { sr.flipX = true; }
-                if (isRight == false) { sr.flipX = false; } 
+                if (direction == 3 || direction == 5 || direction == 8) { sr.flipX = true; }
+                if (direction == 1 || direction == 4 || direction == 6) { sr.flipX = false; }
 
                 if (printDirection == true) { Debug.Log(direction); }
                 pauseTime = Random.Range(1, 3);

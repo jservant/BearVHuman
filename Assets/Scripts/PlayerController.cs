@@ -25,10 +25,12 @@ public class PlayerController : MonoBehaviour
     {
         if (gameObject.CompareTag("PBear"))
         {
-            float moveHB = Input.GetAxisRaw("Horizontal");
-            float moveVB = Input.GetAxisRaw("Vertical");
-            Vector2 move = new Vector2(moveHB, moveVB);
+            float moveH = Input.GetAxisRaw("Horizontal");
+            float moveV = Input.GetAxisRaw("Vertical");
+            Vector2 move = new Vector2(moveH, moveV);
             rb.velocity = move * speed;
+            if (Input.GetAxisRaw("Horizontal") > .1f) { sr.flipX = true; }
+            if (Input.GetAxisRaw("Horizontal") < -.1f) { sr.flipX = false; }
             if (Input.GetButtonDown("Jump"))
             {
                 Swing();
@@ -37,13 +39,13 @@ public class PlayerController : MonoBehaviour
 
         if (gameObject.CompareTag("PHuman"))
         {
-            //movement
-            float moveHH = Input.GetAxisRaw("Horizontal2");
-            float moveVH = Input.GetAxisRaw("Vertical2");
-            Vector2 move = new Vector2(moveHH, moveVH);
+            float moveH = Input.GetAxisRaw("Horizontal2");
+            float moveV = Input.GetAxisRaw("Vertical2");
+            Vector2 move = new Vector2(moveH, moveV);
             rb.velocity = move * speed;
+            if (Input.GetAxisRaw("Horizontal2") > .1f) { sr.flipX = true; }
+            if (Input.GetAxisRaw("Horizontal2") < -.1f) { sr.flipX = false; }
         }
-
     }
 
     public void Swing()

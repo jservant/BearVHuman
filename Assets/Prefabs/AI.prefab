@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 138348819029318019}
   m_Layer: 0
   m_Name: AI
-  m_TagString: Untagged
+  m_TagString: Human
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117,6 +117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   walkDistance: 1
+  direction: 0
   pauseTime: 2
   smallPause: 0.03
   debugDirection: 0
@@ -125,6 +126,7 @@ MonoBehaviour:
   south: 0
   east: 0
   west: 0
+  isRight: 0
   clampMinX: -8.4
   clampMaxX: 8.4
   clampMinY: -4

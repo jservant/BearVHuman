@@ -120,4 +120,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6e735284d9f59544b1c30e5465e3105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tagToDestroy: 
+  pHumanTag: PHuman
+  HumanTag: Human

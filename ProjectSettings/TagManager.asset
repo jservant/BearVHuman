@@ -6,6 +6,8 @@ TagManager:
   tags:
   - PHuman
   - PBear
+  - Human
+  - Bear
   layers:
   - Default
   - TransparentFX
