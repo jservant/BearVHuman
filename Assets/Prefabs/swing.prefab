@@ -122,3 +122,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pHumanTag: PHuman
   HumanTag: Human
+  despawnTime: 0.6
