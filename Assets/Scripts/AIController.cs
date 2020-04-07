@@ -163,19 +163,5 @@ public class AIController : MonoBehaviour
             hasNumber = false;
             StartCoroutine(MoveAI());
         }
-
-        /*void BumpIntoWall()
-        {
-            if (debugDirection >= 1)
-            {
-                int bumpDirection = debugDirection;
-                debugDirection = Random.Range(1, 8);
-                if (bumpDirection == debugDirection)
-                {
-                    BumpIntoWall();
-                }
-            }
-            WALKIN = 0;
-        } */
     }
 }

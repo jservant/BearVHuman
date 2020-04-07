@@ -143,3 +143,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c2f5d6fae22e7e34987cfddd829f0cf3, type: 3}
   - {fileID: 21300000, guid: 6489fc17807b0c34089f26e9307bc5e7, type: 3}
   - {fileID: 21300000, guid: 5ab77666ed4eb4e409056024d3e145a6, type: 3}
+  clampMinX: -8.4
+  clampMaxX: 8.4
+  clampMinY: -4
+  clampMaxY: 4

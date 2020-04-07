@@ -10,6 +10,12 @@ public class PlayerController : MonoBehaviour
     public GameObject hit;
     public Transform swinger;
     public Sprite[] sprites;
+    [Header("Clamps")]
+    [SerializeField] float clampMinX;
+    [SerializeField] float clampMaxX;
+    [SerializeField] float clampMinY;
+    [SerializeField] float clampMaxY;
+
 
     Rigidbody2D rb;
     SpriteRenderer sr;
@@ -43,8 +49,13 @@ public class PlayerController : MonoBehaviour
             Vector2 move = new Vector2(moveH, moveV);
             rb.velocity = move * speed;
             if (Input.GetAxisRaw("Horizontal2") > .1f) { sr.flipX = true; }
-            if (Input.GetAxisRaw("Horizontal2") < -.1f) { sr.flipX = false; }
         }
+
+        if (transform.position.x < clampMinX) transform.position = new Vector2(clampMinX, transform.position.y);
+        if (transform.position.x > clampMaxX) transform.position = new Vector2(clampMaxX, transform.position.y);
+        if (transform.position.y < clampMinY) transform.position = new Vector2(transform.position.x, clampMinY);
+        if (transform.position.y > clampMaxY) transform.position = new Vector2(transform.position.x, clampMaxY);
+
     }
 
     void Swing()

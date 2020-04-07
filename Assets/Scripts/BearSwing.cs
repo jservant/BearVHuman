@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BearSwing : MonoBehaviour
 {
+    public string pHumanTag;
     public string HumanTag;
     [SerializeField] float despawnTime;
 
@@ -15,8 +16,12 @@ public class BearSwing : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag(HumanTag))
+        if (other.CompareTag(HumanTag) || other.CompareTag(pHumanTag))
         {
+            if (other.CompareTag(pHumanTag))
+            {
+                GameObject.FindWithTag("GameController").GetComponent<GameMaster>().bearWin = true;
+            }
             Destroy(other.gameObject);
             Destroy(gameObject);
         }
