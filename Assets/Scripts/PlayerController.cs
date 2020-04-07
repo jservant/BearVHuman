@@ -29,12 +29,11 @@ public class PlayerController : MonoBehaviour
             float moveV = Input.GetAxisRaw("Vertical");
             Vector2 move = new Vector2(moveH, moveV);
             rb.velocity = move * speed;
-            if (Input.GetAxisRaw("Horizontal") > .1f) { sr.flipX = true; }
+            if (Input.GetAxisRaw("Horizontal") > .1f) { sr.flipX = true; } // flipX being true means player is moving right
             if (Input.GetAxisRaw("Horizontal") < -.1f) { sr.flipX = false; }
-            if (Input.GetButtonDown("Jump"))
-            {
-                Swing();
-            }
+            if (Input.GetButtonDown("Jump")) { Swing(); }
+            if (sr.flipX == true) { swinger.localPosition = new Vector2(0.75f, 0); }
+            if (sr.flipX == false) { swinger.localPosition = new Vector2(-0.75f, 0); }
         }
 
         if (gameObject.CompareTag("PHuman"))
@@ -48,7 +47,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void Swing()
+    void Swing()
     {
         Instantiate(hit, swinger.position, swinger.rotation);
     }

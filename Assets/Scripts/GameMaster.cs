@@ -14,6 +14,7 @@ public class GameMaster : MonoBehaviour
     {
         //hides cursor
         Cursor.visible = false;
+
     }
 
     void Update()
