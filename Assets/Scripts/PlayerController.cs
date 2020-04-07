@@ -62,14 +62,4 @@ public class PlayerController : MonoBehaviour
     {
         Instantiate(hit, swinger.position, swinger.rotation);
     }
-
-    public void LoseATry()
-    {
-        tries--;
-
-        if (tries <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }
 }

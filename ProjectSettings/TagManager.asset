@@ -8,6 +8,7 @@ TagManager:
   - PBear
   - Human
   - Bear
+  - Cop
   layers:
   - Default
   - TransparentFX

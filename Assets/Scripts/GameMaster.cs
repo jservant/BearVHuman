@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameMaster : MonoBehaviour
 {
@@ -12,8 +13,10 @@ public class GameMaster : MonoBehaviour
     public int bearCount;
     public int humanCount;
     [Header("Win Conditions")]
-    [SerializeField] float timer = 180f;
+    [SerializeField] float timer = 120f;
     public Text timerText;
+    public Text winText;
+    public int bearTries;
     public bool bearWin = false;
     public bool humanWin = false;
     [Header("Game Objects")]
@@ -30,6 +33,7 @@ public class GameMaster : MonoBehaviour
     {
         //hides cursor
         Cursor.visible = false;
+        winText.text = "";
 
         for (int i = 0; i < humanCount; i++)
         {
@@ -57,25 +61,29 @@ public class GameMaster : MonoBehaviour
 
     void Update()
     {
-        if (bearWin == false)
-        {
-            timer -= Time.deltaTime;
-            timerText.text = timer.ToString("F0");
-        }
+        if (bearTries == 0 || timer <= 0 && bearWin == false) { humanWin = true; }
 
         if (bearWin == true && spawnOnce == false)
         {
             Instantiate(bearWinScreen);
             timerText.text = "";
+            winText.text = "BEAR WINS! PRESS SPACE TO RESTART";
+            timer = 0;
+            spawnOnce = true;
+            if (Input.GetButtonDown("Jump")) { }
+        }
+        if (humanWin == true && spawnOnce == false)
+        {
+            Instantiate(humanWinScreen);
+            timerText.text = "";
+            winText.text = "HUMAN WINS! PRESS SPACE TO RESTART";
             timer = 0;
             spawnOnce = true;
         }
 
+        if (spawnOnce == false) { timer -= Time.deltaTime; timerText.text = timer.ToString("F0"); }
+        if (Input.GetButtonDown("Jump") && spawnOnce == true) { SceneManager.LoadScene("Main Game"); }
         //Quits game in builds not in unity
-        if (Input.GetButtonUp("Cancel"))
-        {
-            Application.Quit();
-        }
-
+        if (Input.GetButtonUp("Cancel")) { Application.Quit(); }
     }
 }
