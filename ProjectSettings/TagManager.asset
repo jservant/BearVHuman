@@ -4,11 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - PHuman
-  - PBear
-  - Human
-  - Bear
-  - Cop
+  - Player1
+  - Player2
   layers:
   - Default
   - TransparentFX
