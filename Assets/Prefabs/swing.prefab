@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4208123127501843055}
-  - component: {fileID: 2374179133477925133}
-  - component: {fileID: 4934541112270946573}
   - component: {fileID: -9083839074391028854}
+  - component: {fileID: 8269344118717492664}
+  - component: {fileID: 490771204773556192}
+  - component: {fileID: 877712889236836495}
   m_Layer: 0
   m_Name: swing
   m_TagString: Untagged
@@ -28,13 +29,32 @@ Transform:
   m_GameObject: {fileID: 859721287908979760}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 6965533439544710326}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &2374179133477925133
+--- !u!114 &-9083839074391028854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859721287908979760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6e735284d9f59544b1c30e5465e3105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pHumanTag: PHuman
+  HumanTag: Human
+  CopTag: Cop
+  spawner: {fileID: 6965533439544710326}
+  cop: {fileID: 138348819029318018, guid: 6efff8ab9eb23024589ddb0f54fff99e, type: 3}
+  despawnTime: 0.5
+  sr: {fileID: 8269344118717492664}
+--- !u!212 &8269344118717492664
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -72,18 +92,19 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5874b813701078349a6501f114884d54, type: 3}
+  m_Sprite: {fileID: -1132582986675236599, guid: 5260c8e36287929409d272cb7432873b,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.625, y: 0.8333333}
+  m_Size: {x: 0.65025, y: 0.34925538}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &4934541112270946573
+--- !u!61 &490771204773556192
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,33 +121,34 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.625, y: 0.8333333}
-    newSize: {x: 0.625, y: 0.8333333}
+    oldSize: {x: 0.65025, y: 0.34925538}
+    newSize: {x: 0.65025, y: 0.34925538}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.625, y: 0.8333333}
+  m_Size: {x: 0.65025, y: 0.34925538}
   m_EdgeRadius: 0
---- !u!114 &-9083839074391028854
-MonoBehaviour:
+--- !u!95 &877712889236836495
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 859721287908979760}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6e735284d9f59544b1c30e5465e3105, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pHumanTag: PHuman
-  HumanTag: Human
-  CopTag: Cop
-  spawner: {fileID: 6965533439544710326}
-  cop: {fileID: 138348819029318018, guid: 6efff8ab9eb23024589ddb0f54fff99e, type: 3}
-  despawnTime: 0.6
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dfd5ba5a93e1e004598397417535c1ae, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3689297802738276798
 GameObject:
   m_ObjectHideFlags: 0

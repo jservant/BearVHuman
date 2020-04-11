@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody2D rb;
     SpriteRenderer sr;
+    public SpriteRenderer srSwing;
 
     void Start()
     {
@@ -35,11 +36,11 @@ public class PlayerController : MonoBehaviour
             float moveV = Input.GetAxisRaw("Vertical");
             Vector2 move = new Vector2(moveH, moveV);
             rb.velocity = move * speed;
-            if (Input.GetAxisRaw("Horizontal") > .1f) { sr.flipX = true; } // flipX being true means player is moving right
-            if (Input.GetAxisRaw("Horizontal") < -.1f) { sr.flipX = false; }
+            if (Input.GetAxisRaw("Horizontal") > .1f) { sr.flipX = true; srSwing.flipX = true; } // flipX being true means player is moving right
+            if (Input.GetAxisRaw("Horizontal") < -.1f) { sr.flipX = false; srSwing.flipX = false; }
             if (Input.GetButtonDown("Jump")) { Swing(); }
-            if (sr.flipX == true) { swinger.localPosition = new Vector2(0.75f, 0); }
-            if (sr.flipX == false) { swinger.localPosition = new Vector2(-0.75f, 0); }
+            if (sr.flipX == true) { swinger.localPosition = new Vector2(0.5f, 0); }
+            if (sr.flipX == false) { swinger.localPosition = new Vector2(-0.5f, 0); }
         }
 
         if (gameObject.CompareTag("PHuman"))
