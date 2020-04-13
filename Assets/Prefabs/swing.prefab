@@ -53,7 +53,6 @@ MonoBehaviour:
   spawner: {fileID: 6965533439544710326}
   cop: {fileID: 138348819029318018, guid: 6efff8ab9eb23024589ddb0f54fff99e, type: 3}
   despawnTime: 0.5
-  sr: {fileID: 8269344118717492664}
 --- !u!212 &8269344118717492664
 SpriteRenderer:
   m_ObjectHideFlags: 0
