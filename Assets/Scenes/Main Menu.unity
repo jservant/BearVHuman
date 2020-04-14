@@ -1224,7 +1224,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: (Press I to Exit Screen)
+  m_Text: (Press i to Exit Screen)
 --- !u!222 &1680082436
 CanvasRenderer:
   m_ObjectHideFlags: 0
