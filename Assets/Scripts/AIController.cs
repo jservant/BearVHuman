@@ -69,7 +69,7 @@ public class AIController : MonoBehaviour
                     * 6 7 8
                     * 4 * 5
                     * 1 2 3  */
-                if (debugDirection >= 1) { direction = debugDirection; } // debugDirection overrides randomly chosen direction
+                if (debugDirection >= 1) { direction = debugDirection; } 
                 else { direction = Random.Range(1, 8); } /* Randomly pick a direction */
 
                 if (north == true) { direction = Random.Range(1, 5); north = false; }
