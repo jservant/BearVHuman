@@ -31,8 +31,13 @@ public class AIController : MonoBehaviour
 
     [Header("Sprites")]
     [SerializeField] Sprite[] sprites;
+    public GameObject hit;
+    public Transform hitSpawner;
 
     bool hasNumber = false; // DO NOT DELETE, causes AI to move rapidly
+    float hitTimer;
+    bool canSwing = true;
+    public SpriteRenderer swingSR;
 
     Vector3 pos;
     SpriteRenderer sr;
@@ -43,6 +48,7 @@ public class AIController : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         sr.sprite = sprites[Random.Range(0, sprites.Length)];
         pauseTime = Random.Range(1, 3);
+        hitTimer = Random.Range(10, 100);
         StartCoroutine(StartPause());
     }
 
@@ -162,6 +168,30 @@ public class AIController : MonoBehaviour
             yield return new WaitForSeconds(pauseTime);
             hasNumber = false;
             StartCoroutine(MoveAI());
+        }
+
+        if (gameObject.CompareTag("Bear"))
+        {
+            BearSwing();
+        }
+    }
+
+    private void Update()
+    {
+        if (gameObject.CompareTag("Bear"))
+        { 
+            if (sr.flipX == true) { hitSpawner.localPosition = new Vector2(0.5f, 0); swingSR.flipX = true; }
+            if (sr.flipX == false) { hitSpawner.localPosition = new Vector2(-0.5f, 0); swingSR.flipX = false; }
+            hitTimer -= Time.deltaTime;
+        }
+    }
+
+    void BearSwing()
+    {
+        if (hitTimer <= 0 && canSwing == true)
+        {
+            Instantiate(hit, hitSpawner.position, hitSpawner.rotation);
+            canSwing = false;
         }
     }
 }

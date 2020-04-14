@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour
             Vector2 move = new Vector2(moveH, moveV);
             rb.velocity = move * speed;
             if (Input.GetAxisRaw("Horizontal2") > .1f) { sr.flipX = true; }
+            if (Input.GetAxisRaw("Horizontal2") < -.1f) { sr.flipX = false; }
         }
 
         if (transform.position.x < clampMinX) transform.position = new Vector2(clampMinX, transform.position.y);

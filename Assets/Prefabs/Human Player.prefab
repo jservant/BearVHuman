@@ -71,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: cba28ae0022db114d9a76e383bdd9020, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -147,3 +147,4 @@ MonoBehaviour:
   clampMaxX: 8.4
   clampMinY: -4
   clampMaxY: 4
+  srSwing: {fileID: 0}
