@@ -83,7 +83,5 @@ public class GameMaster : MonoBehaviour
 
         if (spawnOnce == false) { timer -= Time.deltaTime; timerText.text = timer.ToString("F0"); }
         if (Input.GetButtonDown("Jump") && spawnOnce == true) { SceneManager.LoadScene("Main Game"); }
-        //Quits game in builds not in unity
-        if (Input.GetButtonUp("Cancel")) { Application.Quit(); }
     }
 }

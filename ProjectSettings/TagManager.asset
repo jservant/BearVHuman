@@ -9,6 +9,9 @@ TagManager:
   - Human
   - Bear
   - Cop
+  - Player2
+  - ShowOnPause
+  - HowTo
   layers:
   - Default
   - TransparentFX
